@@ -1,0 +1,13 @@
+<h2>List Of News</h2>
+<sly data-sly-use.model="com.bhasaka.newsportal.core.models.NewsListParentModel" />
+<div class="news-container">
+    <sly data-sly-list.newsItem="${model.newsItems}">
+        <div class="news-item">
+            <p><strong>Title:</strong> ${newsItem.newsTitle}</p>
+            <p><strong>Description:</strong> ${newsItem.newsDescription}</p>
+            <p><strong>Status:</strong> ${newsItem.newsStatus}</p>
+            <p><strong>Release Date:</strong> ${newsItem.newsDate}</p>
+            <p><strong>Location:</strong> ${newsItem.newsLocation}</p>
+        </div>
+    </sly>
+</div>

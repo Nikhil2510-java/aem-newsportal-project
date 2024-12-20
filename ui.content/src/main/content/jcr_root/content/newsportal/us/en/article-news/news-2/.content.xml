@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2024-11-13T12:35:21.230+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2024-11-13T10:51:54.071+05:30"
+        cq:lastReplicated_publish="{Date}2024-11-13T10:51:54.071+05:30"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicatedBy_publish="admin"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:template="/conf/newsportal/settings/wcm/templates/article-template"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="News-2"
+        jcr:uuid="e22ad0c5-fdc9-487c-848e-a19a71a10ce9"
+        sling:resourceType="newsportal/components/article-page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="newsportal/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="newsportal/components/container"
+                layout="responsiveGrid">
+                <contentfragment
+                    jcr:created="{Date}2024-11-12T19:55:18.548+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-11-12T19:55:34.603+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="newsportal/components/contentfragment"
+                    displayMode="multi"
+                    fragmentPath="/content/dam/newsportal/content-fragment/newsinfo"
+                    paragraphScope="all"
+                    text="News Info Agency Name Times Of India About News OpenAI CEO Sam Altman Says Artificial Superintelligence Is 'Thousands Of Days Away' Mobile no 987654335 News Date 2024-11-11 17:06 News Image /content/dam/newsportal/images/news-825x525.jpg Other Info Add Other Info /content/dam/newsportal/content-fragment/address-about-news Government Approve Agency true"
+                    variationName="master"/>
+                <news_info
+                    jcr:created="{Date}2024-11-13T12:35:21.222+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-11-13T12:35:21.222+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="newsportal/components/news-info"/>
+            </container>
+            <title_1396700575
+                jcr:created="{Date}2024-09-23T10:32:24.385+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-09-23T10:37:42.436+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Footer Section....."
+                sling:resourceType="newsportal/components/title"
+                linkTarget="_self"
+                type="h1"/>
+        </root>
+    </jcr:content>
+</jcr:root>

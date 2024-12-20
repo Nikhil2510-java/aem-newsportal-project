@@ -1,0 +1,27 @@
+{
+  newsinfoList {
+    items {
+      _path
+      _variation
+      agencyName
+      aboutNews {
+        plaintext
+      }
+      mobileNo
+      newsDate
+      newsImage {
+        ...on ImageRef{
+          _path
+        }
+      }
+      addOtherInfo {
+       ...on AddressModel{
+        addressLine1
+        addressLine2
+        pinCode
+      }
+      }
+      governmentApproveAgency
+    }
+  }
+}

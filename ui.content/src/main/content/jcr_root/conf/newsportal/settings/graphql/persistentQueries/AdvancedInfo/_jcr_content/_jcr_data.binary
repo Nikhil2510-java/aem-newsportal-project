@@ -1,0 +1,19 @@
+{
+  advInfoList{
+    items{
+      spouseFirstName
+      spouseLastName
+      spouseDob
+      spouseAge
+      spousePassport{
+        ...on ImageRef{
+          _path
+          width
+          height
+          type
+        }
+      }
+      
+    }
+  }
+}

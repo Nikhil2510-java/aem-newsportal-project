@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-09-25T10:32:15.842+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastRolledout="{Date}2024-09-25T10:26:33.747+05:30"
+        cq:lastRolledoutBy="admin"
+        cq:tags="[]"
+        cq:template="/conf/newsportal/settings/wcm/templates/xf-web-variation"
+        cq:xfVariantType="web"
+        jcr:mixinTypes="[cq:LiveRelationship,cq:LiveSync]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Product Header"
+        sling:resourceType="newsportal/components/xfpage">
+        <root
+            cq:lastRolledout="{Date}2024-09-25T10:26:33.730+05:30"
+            cq:lastRolledoutBy="admin"
+            jcr:mixinTypes="[cq:LiveRelationship]"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="newsportal/components/container"
+            layout="responsiveGrid">
+            <top_bar
+                cq:isCancelledForChildren="{Boolean}true"
+                cq:lastRolledout="{Date}2024-09-25T10:32:15.845+05:30"
+                cq:lastRolledoutBy="admin"
+                jcr:created="{Date}2024-09-25T10:12:45.990+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-09-25T10:32:15.842+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:mixinTypes="[cq:LiveRelationship,cq:LiveSyncCancelled]"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="newsportal/components/top-bar"
+                email="cs.notes@gmail.com"
+                phone=" 8787878787"
+                rightNav="[/content/newsportal/us/en/about-us,/content/newsportal/us/en/contact-us,/content/newsportal/us/en/policy,/content/newsportal/us/en/terms]"/>
+            <brand_logo
+                cq:lastRolledout="{Date}2024-09-25T10:26:33.744+05:30"
+                cq:lastRolledoutBy="admin"
+                jcr:created="{Date}2024-09-25T10:15:24.053+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-09-25T10:26:33.742+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:mixinTypes="[cq:LiveRelationship]"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="newsportal/components/brand-logo"
+                logoAltText="cs-news Logo"
+                logoImage="/content/dam/newsportal/images/logo.png"
+                logoLink="/content/newsportal/us/en"/>
+            <navigation
+                cq:lastRolledout="{Date}2024-09-25T10:26:33.747+05:30"
+                cq:lastRolledoutBy="admin"
+                jcr:created="{Date}2024-09-25T10:16:15.216+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-09-25T10:26:33.745+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:mixinTypes="[cq:LiveRelationship]"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="newsportal/components/navigation"/>
+        </root>
+        <cq:LiveSyncConfig
+            cq:isDeep="{Boolean}true"
+            cq:master="/content/experience-fragments/newsportal/us/en/site/header/cs-header"
+            cq:rolloutConfigs="[]"
+            jcr:primaryType="cq:LiveCopy"/>
+    </jcr:content>
+</jcr:root>

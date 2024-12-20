@@ -1,0 +1,19 @@
+<h3>Product Details</h3>
+<hr>
+<div data-sly-resource="${'npTitle' @resourceType ='newsportal/components/title' }"></div>
+<div data-sly-resource="${'npText' @resourceType ='newsportal/components/text' }"></div>
+<div data-sly-resource="${'npImage' @resourceType ='newsportal/components/image' }"></div>
+<div data-sly-resource="${'npButton' @resourceType ='newsportal/components/button' }"></div>
+<p>===============================================================</p>
+<sly data-sly-use.product="com.bhasaka.newsportal.core.models.ProductDetailsModel" />
+
+<p>Category: ${product.category}</p>
+<p>Product Tag: ${product.productTag}</p>
+
+<p>Title: ${product.titleText}</p>
+<p>Description: ${product.descriptionText}</p>
+<p>Image URL: ${product.imageSrc}</p>
+<p>Button Text: ${product.buttonText}</p>
+<p>Button Link: <a href="${product.buttonLink}">${product.buttonText}</a></p>
+
+

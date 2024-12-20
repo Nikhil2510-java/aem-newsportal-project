@@ -1,0 +1,22 @@
+<div style="background: rgb(166, 166, 239); padding: 20px;">
+    <h1>${properties.title}</h1>
+    <h2>${properties.subTitle}</h2>
+    <div style="background: lightcyan; padding:10px;">
+        <h3>${properties.buttonLabel}</h3>
+        
+        <a href="${properties.buttonPath @extension='html'}" target="${properties.openInNewTab == 'true' ? '_blank' : ''}">
+            <button><i class="fa fa-search">Open New Tab</i></button>
+        </a>
+    </div>
+</div>
+<!-- ClienLib Async -->
+<!-- <sly data-sly-use.clientlibs="${'com.adobe.cq.wcm.core.components.models.ClientLibraries' @
+    categories='newsportal.desktop',
+    media='print',
+    async=true,
+    defer=true,
+    onload='console.log(\'loaded: \' + this.src)',
+    crossorigin='anonymous'}">
+    ${clientlibs.jsAndCssIncludes @ context="unsafe"}
+</sly> -->
+<!-- ClientLib Async End  -->

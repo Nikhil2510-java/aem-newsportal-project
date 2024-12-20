@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2024-09-24T14:55:31.942+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2024-09-30T16:19:32.147+05:30"
+        cq:lastReplicated_publish="{Date}2024-09-30T16:19:32.147+05:30"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicatedBy_publish="admin"
+        cq:lastReplicationAction="Deactivate"
+        cq:lastReplicationAction_publish="Deactivate"
+        cq:template="/conf/newsportal/settings/wcm/templates/article-template"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Article 5"
+        jcr:uuid="4fc796ce-af92-463b-8c6e-4647840bd758"
+        sling:resourceType="newsportal/components/article-page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="newsportal/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="newsportal/components/container"
+                layout="responsiveGrid"/>
+            <title_1396700575
+                jcr:created="{Date}2024-09-23T10:32:24.385+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-09-23T10:37:42.436+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Footer Section....."
+                sling:resourceType="newsportal/components/title"
+                linkTarget="_self"
+                type="h1"/>
+        </root>
+    </jcr:content>
+</jcr:root>

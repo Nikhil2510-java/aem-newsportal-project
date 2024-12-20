@@ -1,0 +1,13 @@
+<template data-sly-template.productList="${@ products}">
+    <div class="news-container">
+        <sly data-sly-list.productItem="${products}">
+            <div class="news-item">
+                <img src="${productItem.productImage}" alt="${productItem.productTitle}" class="product-image">
+                <p><strong>Price:</strong> $${productItem.productPrice}</p>
+                <p><strong>Expiry Date:</strong> ${productItem.productExpiry}</p>
+                <p><strong>Tags:</strong> ${productItem.productTags}</p>
+                <p><strong>Color:</strong> ${productItem.productColour}</p>
+            </div>
+        </sly>
+    </div>
+</template>

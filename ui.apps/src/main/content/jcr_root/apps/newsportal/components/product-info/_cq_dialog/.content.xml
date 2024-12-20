@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Product Information"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <productName
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldDescription="Enter the name of the product"
+                fieldLabel="Product Name"
+                name="./productName"/>
+            <productCategory
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldDescription="Enter the category of the product"
+                fieldLabel="Product Category"
+                name="./productCategory"/>
+            <productImage
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldDescription="Select the product image from DAM"
+                fieldLabel="Product Image"
+                name="./productImage"/>
+            <productPrice
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                fieldDescription="Enter the price of the product"
+                fieldLabel="Product Price"
+                min="0"
+                name="./productPrice"/>
+            <productAvailability
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                fieldDescription="Check if the product is available"
+                fieldLabel="Product Availability"
+                name="./productAvailability"/>
+            <customPath
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                fieldDescription="Select the JCR path to fetch product details"
+                fieldLabel="Custom JCR Path"
+                name="./customPath"
+                rootPath="/content"/>
+        </items>
+    </content>
+</jcr:root>

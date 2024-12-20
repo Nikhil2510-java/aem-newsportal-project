@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2024-10-01T11:43:38.763+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2024-10-03T12:00:08.245+05:30"
+        cq:lastReplicated_publish="{Date}2024-10-03T12:00:08.245+05:30"
+        cq:lastReplicatedBy="workflow-process-service"
+        cq:lastReplicatedBy_publish="workflow-process-service"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:template="/conf/newsportal/settings/wcm/templates/article-template"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Article 1"
+        jcr:uuid="2728bebe-3976-48e9-8000-4764ae15d292"
+        sling:resourceType="newsportal/components/article-page"
+        pageActivated="{Boolean}true">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="newsportal/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="newsportal/components/container"
+                layout="responsiveGrid">
+                <article_details_1638660588
+                    cq:styleIds="[1727761633212,1727763050489]"
+                    jcr:created="{Date}2024-10-01T11:23:27.421+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-10-01T11:24:04.168+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="newsportal/components/article-details"
+                    articleDesc="Jailer Movie Desc"
+                    articleImage="/content/dam/newsportal/jailer.jpg"
+                    articleTitle="Jailer Movie Title"
+                    textIsRich="true">
+                    <cq:featuredimage
+                        jcr:lastModified="{Date}2024-10-01T11:24:04.168+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="core/wcm/components/image/v3/image"
+                        altValueFromDAM="true"/>
+                </article_details_1638660588>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-11-21T13:34:25.897+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/newsportal/settings/wcm/templates/article-template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Article List"
+        sling:resourceType="newsportal/components/article-page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="newsportal/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="newsportal/components/container"
+                layout="responsiveGrid">
+                <article_list
+                    jcr:created="{Date}2024-11-21T11:53:54.600+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-11-21T13:34:25.891+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="newsportal/components/article-list">
+                    <newslist jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            newsDate="{Date}2024-11-21T00:00:00.000+05:30"
+                            newsDescription="Bitcoin, the world's largest cryptocurrency, hit a record high of $95,000 on Thursday before settling slightly lower at $94,750 as of 6:45 AM. This latest surge marks an over 100% increase in its value this year, cementing Bitcoin's position as a key player in the global financial markets."
+                            newsLocation="US"
+                            newsStatus="true"
+                            newsTitle="Bitcoin reaches record high of $95,000. 5 things to know"/>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            newsDate="{Date}2024-11-21T00:00:00.000+05:30"
+                            newsDescription="OpenAI has recently released its Advanced Voice mode for the ChatGPT desktop. Launched in September, the feature was only available on iOS and Android apps earlier. Now it is expanding to the web, making it available for users to experience it on the browser as well. The company announced the update via an X post. "
+                            newsLocation="UK"
+                            newsStatus="false"
+                            newsTitle="OpenAI launches ChatGPT's Advanced Voice Mode on web but here is the catch"/>
+                        <item2
+                            jcr:primaryType="nt:unstructured"
+                            newsDate="{Date}2025-01-01T00:00:00.000+05:30"
+                            newsDescription="First car to launch in 2026&#xd;&#xa;Will become an all-electric brand in the future&#xd;&#xa;Jaguar, who has been very quiet for the last year or thereabouts, has revealed its new logo and also the first images of its new EV that will be launched in 2026. The new logo is a radical departure from the erstwhile Jaguar logo and sees the retirement of the signature Jaguar head and font in favour of a more contemporary design."
+                            newsLocation="Mumbai,Maharashtra"
+                            newsStatus="false"
+                            newsTitle="Jaguar reveals new logo and first images of next-gen car"/>
+                    </newslist>
+                </article_list>
+            </container>
+            <title_1396700575
+                jcr:created="{Date}2024-09-23T10:32:24.385+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-09-23T10:37:42.436+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Footer Section....."
+                sling:resourceType="newsportal/components/title"
+                linkTarget="_self"
+                type="h1"/>
+        </root>
+    </jcr:content>
+</jcr:root>

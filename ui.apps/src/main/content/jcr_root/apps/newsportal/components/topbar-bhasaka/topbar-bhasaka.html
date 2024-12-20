@@ -1,0 +1,26 @@
+<div class="topbar">
+    <div class="row bg-pink">
+        <div class="left">
+            <sly data-sly-list.tabs="${properties.tabsList}">
+                <a href="#">${tabs}</a>
+            </sly>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="dropdown-btn" data-toggle="dropdown">${properties.myAccount}</button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Logout</a>
+            </div>
+            <button type="button" class="dropdown-btn" data-toggle="dropdown">${properties.currency}</button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">USD</a>
+                <a class="dropdown-item" href="#">EUR</a>
+            </div>
+            <button type="button" class="dropdown-btn" data-toggle="dropdown">${properties.language}</button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">English</a>
+                <a class="dropdown-item" href="#">French</a>
+            </div>
+        </div>
+    </div>
+</div>

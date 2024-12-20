@@ -1,0 +1,11 @@
+<div style="background: rgb(166, 166, 239); padding: 20px;">
+    <h1>News Agency: ${properties.newsAgency}</h1>
+    <h2>Category: ${properties.category}</h2>
+    
+    <!-- Add a download button with category as a parameter -->
+    <a href="/bin/newsportal/news-downloadServlet?category=${properties.category}" 
+       class="download-btn" 
+       style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">
+        Download ${properties.category} Report
+    </a>
+</div>

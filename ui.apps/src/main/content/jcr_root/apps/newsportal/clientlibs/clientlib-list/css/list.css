@@ -1,0 +1,42 @@
+
+.news-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 16px; 
+    justify-content: space-between; 
+}
+
+.news-item {
+    flex: 1 1 calc(50% - 16px); 
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 16px;
+    box-sizing: border-box; 
+}
+
+h2 {
+    font-size: 24px;
+    color: #2e7d32;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+ul li p {
+    margin: 5px 0;
+}
+
+ul li p strong {
+    color: #37474f;
+}

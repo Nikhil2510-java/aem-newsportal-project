@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-09-23T00:10:47.460+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/newsportal/settings/wcm/templates/page-content"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Articles"
+        sling:resourceType="newsportal/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="newsportal/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="newsportal/components/container"
+                layout="responsiveGrid">
+                <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="newsportal/components/title"/>
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="newsportal/components/container"
+                    layout="responsiveGrid">
+                    <article_details
+                        jcr:created="{Date}2024-09-21T15:21:52.487+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2024-09-23T00:10:47.457+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="newsportal/components/article-details"
+                        articleDesc="Jailer Movie Desc"
+                        articleImage="/content/dam/newsportal/jailer.jpg"
+                        articleLabels="[Marathi,Hindi,English,Telgu]"
+                        articleTitle="Jailer Movie Title"
+                        text="fghj">
+                        <np-button
+                            jcr:lastModified="{Date}2024-09-21T16:10:33.748+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Navigation Button"
+                            sling:resourceType="newsportal/components/button"
+                            linkTarget="_self"
+                            linkURL="/content/newsportal/us/en"/>
+                    </article_details>
+                </container>
+            </container>
+        </root>
+    </jcr:content>
+    <article-1/>
+    <article-2/>
+    <article-3/>
+    <article-4/>
+    <article-5/>
+    <article-banner/>
+    <rte-check/>
+    <pagelayout/>
+    <article-33/>
+    <article-workflow/>
+    <article-36/>
+</jcr:root>

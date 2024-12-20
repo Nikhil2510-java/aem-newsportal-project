@@ -1,0 +1,30 @@
+{
+  "article-details": {
+    "titleType": "h1",
+    "articleTitle": "Json Newsportal Features",
+    "articleExpiry": "Mon Dec 25 2024 00:00:00 GMT+0530",
+    "articleLabels": [
+      "Indian",
+      "Movie",
+      "Hindi"
+    ],
+    "articleDesc": "Json Newsportal About Information",
+    "articleImage": "/content/dam/newsportal/asset.jpg",
+    "sling:resourceType": "newsportal/components/article-details",
+    "textIsRich": true
+  },
+  "article-details-expired": {
+    "titleType": "h1",
+    "articleTitle": "Json Newsportal Features",
+    "jcr:created": "Thu Nov 30 2023 12:11:25 GMT+0530",
+    "articleExpiry": "Mon Dec 25 2023 00:00:00 GMT+0530",
+    "articleLabels": [
+      "Indian",
+      "Movie",
+      "Hindi"
+    ],
+    "articleDesc": "<p>Json Newsportal Features are</p>\r\n<p>1.sling.repo</p>\r\n<p>2.Scd</p>\r\n",
+    "sling:resourceType": "newsportal/components/article-details",
+    "textIsRich": true
+  }
+}

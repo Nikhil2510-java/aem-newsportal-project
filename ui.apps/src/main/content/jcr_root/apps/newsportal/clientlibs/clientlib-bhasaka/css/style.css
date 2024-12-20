@@ -1,0 +1,8 @@
+/* Root Variables for Theme */
+:root {
+    --pink: #ed3e73;
+    --gray-dark: #343a40;
+    --white: #fff;
+    --btn-hover-bg: rgba(255, 255, 255, 0.1);
+}
+

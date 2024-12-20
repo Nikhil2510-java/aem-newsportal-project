@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Product Details"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <category
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/radiogroup"
+                name="./category"
+                fieldLabel="Select Category"
+                vertical="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <radio1
+                        jcr:primaryType="nt:unstructured"
+                        text="Kids"
+                        value="kids"/>
+                    <radio2
+                        jcr:primaryType="nt:unstructured"
+                        text="Men"
+                        value="men"/>
+                    <radio3
+                        jcr:primaryType="nt:unstructured"
+                        text="Women"
+                        value="women"/>
+                </items>
+            </category>
+            <productTag
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+                fieldLabel="Product Tag"
+                name="./productTag"
+                rootPath="/content/cq:tags/newsportal/product" />
+
+        </items>
+    </content>
+</jcr:root>

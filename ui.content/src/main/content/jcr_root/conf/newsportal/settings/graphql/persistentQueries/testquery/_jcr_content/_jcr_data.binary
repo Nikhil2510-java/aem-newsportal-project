@@ -1,0 +1,9 @@
+{
+  newsinfoList {
+    items {
+     _path
+      agencyName
+      mobileNo   
+    }
+  }
+}

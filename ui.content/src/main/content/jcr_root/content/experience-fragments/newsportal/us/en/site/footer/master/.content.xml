@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2024-09-24T17:59:07.864+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2024-09-30T15:40:11.682+05:30"
+        cq:lastReplicated_publish="{Date}2024-09-30T15:40:11.682+05:30"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicatedBy_publish="admin"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:tags="[experience-fragments:variation/web]"
+        cq:template="/conf/newsportal/settings/wcm/templates/xf-web-variation"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Footer"
+        jcr:uuid="6f3470d9-9bf1-47c3-a98f-c3af987867ef"
+        sling:resourceType="newsportal/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="newsportal/components/container"
+            layout="responsiveGrid">
+            <footer
+                jcr:created="{Date}2024-09-23T17:36:19.221+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-09-24T15:03:16.079+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="newsportal/components/footer"
+                navList="[/content/newsportal/us/en/articles/article-1,/content/newsportal/us/en/articles/article-2,/content/newsportal/us/en/articles/article-3,/content/newsportal/us/en/articles/article-4,/content/newsportal/us/en/articles/article-5]"
+                Title="Useful Links">
+                <footer-list-3
+                    jcr:lastModified="{Date}2024-09-24T16:00:56.648+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="newsportal/components/footer-list"
+                    navList="[/content/newsportal/us/en/articles/article-5,/content/newsportal/us/en/articles/article-4,/content/newsportal/us/en/articles/article-3,/content/newsportal/us/en/articles/article-2,/content/newsportal/us/en/articles/article-1]"
+                    title="Quick Link"/>
+                <footer-list-2
+                    jcr:lastModified="{Date}2024-09-24T16:01:11.245+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="newsportal/components/footer-list"
+                    navList="[/content/newsportal/us/en/articles/article-1,/content/newsportal/us/en/articles/article-2,/content/newsportal/us/en/articles/article-3,/content/newsportal/us/en/articles/article-4,/content/newsportal/us/en/articles/article-5]"
+                    title="Useful Link"/>
+                <footer-list-1
+                    jcr:lastModified="{Date}2024-09-24T16:43:20.901+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="newsportal/components/footer-list"
+                    includeInlineLink="true"
+                    includeSocialIcons="true"
+                    text="&lt;p>&lt;i class=&quot;fa fa-map-marker&quot;>&lt;/i>123 News Street, NY, USA&lt;/p>&#xd;&#xa;        &lt;p>&lt;i class=&quot;fa fa-envelope&quot;>&lt;/i>info@example.com&lt;/p>&#xd;&#xa;        &lt;p>&lt;i class=&quot;fa fa-phone&quot;>&lt;/i>+123-456-7890&lt;/p>"
+                    title="Get In Touch"/>
+                <footer-list-4
+                    jcr:lastModified="{Date}2024-09-24T16:46:41.063+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="newsportal/components/footer-list"
+                    includeInlineLink="true"
+                    includeSubscirbeForm="true"
+                    text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed porta dui. Class aptent taciti sociosqu 2.0"
+                    title="Newsletter"/>
+                <footer-list-5
+                    jcr:lastModified="{Date}2024-09-24T17:06:41.816+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="newsportal/components/footer-list"
+                    includeInlineLink="true"
+                    inlineLink="true"
+                    navList="[/content/newsportal/us/en/articles/article-1,/content/newsportal/us/en/articles/article-2,/content/newsportal/us/en/articles/article-3,/content/newsportal/us/en/articles/article-4,/content/newsportal/us/en/articles/article-5]"/>
+            </footer>
+        </root>
+    </jcr:content>
+</jcr:root>

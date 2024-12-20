@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    sling:resourceType="granite/ui/components/coral/foundation/accordion"
+    margin="{Boolean}true"
+    path="/apps/newsportal/components/dialogutils/accordion">
+    <items jcr:primaryType="nt:unstructured">
+        <fields
+            jcr:primaryType="nt:unstructured"
+            jcr:title=" Popular Products Details"
+            sling:resourceType="granite/ui/components/coral/foundation/container"
+            maximized="{Boolean}true">
+            <items jcr:primaryType="nt:unstructured">
+                <productExpiry
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                    fieldDescription="Product Expiry"
+                    fieldLabel="Product Expiry"
+                    name="./productExpiry"/>
+                <productPrice
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                    fieldDescription="Product Price"
+                    fieldLabel="Product Price"
+                    name="./productPrice"/>
+                <productImage
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                    fieldDescription="Product Image"
+                    fieldLabel="Product Image"
+                    name="./productImage"
+                    rootPath="/content/dam/newsportal/images"/>
+                <fieldset
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Additional Product Details"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                    <items jcr:primaryType="nt:unstructured">
+                        <productColour
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+                            fieldDescription="Product Colour"
+                            fieldLabel="Product Colour"
+                            name="./productColour"/>
+                        <productTags
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+                            fieldDescription="Product Tags"
+                            fieldLabel="Product Tags"
+                            name="./productTags"/>
+                    </items>
+                </fieldset>
+            </items>
+        </fields>
+    </items>
+</jcr:root>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-11-25T17:13:44.172+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/newsportal/settings/wcm/templates/article-template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Multifield"
+        sling:resourceType="newsportal/components/article-page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="newsportal/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="newsportal/components/container"
+                layout="responsiveGrid">
+                <comp_multifield_1691030778
+                    jcr:created="{Date}2024-11-15T16:58:01.134+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2024-11-25T17:13:44.165+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="newsportal/components/comp-multifield">
+                    <questionAnswer jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            answer="About News details"
+                            question="News24/7"/>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            answer="wertyuioikjhgfxxghjkl"
+                            question="2ertyu"/>
+                    </questionAnswer>
+                </comp_multifield_1691030778>
+            </container>
+            <title_1396700575
+                jcr:created="{Date}2024-09-23T10:32:24.385+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-09-23T10:37:42.436+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Footer Section....."
+                sling:resourceType="newsportal/components/title"
+                linkTarget="_self"
+                type="h1"/>
+        </root>
+    </jcr:content>
+</jcr:root>

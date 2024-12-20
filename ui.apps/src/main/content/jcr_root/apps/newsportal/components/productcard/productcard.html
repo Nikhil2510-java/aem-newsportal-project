@@ -1,0 +1,20 @@
+<sly data-sly-use.product="com.bhasaka.newsportal.core.models.ProductCardModel">
+    <div class="product-card">
+        
+        <h2>${product.containerTitle}</h2>
+        <p>${product.containerDescription @context="html"}</p>
+        <p>Status: ${product.status ? 'Available' : 'Unavailable'}</p>
+        <p>Category: ${product.category}</p>
+        <hr>
+
+        <sly data-sly-use.temp="${'product-template.html'}">
+
+            <h3>Product Cards:</h3>
+            <sly data-sly-call="${temp.productList @ products=product.productList}" />
+        
+            <h3>Popular Products:</h3>
+            <sly data-sly-call="${temp.productList @ products=product.popularProductsList}" />
+        
+        </sly>
+
+</sly>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/newsportal/clientlibs"/>
+    <filter root="/apps/newsportal/components"/>
+    <filter root="/apps/newsportal/i18n"/>
+</workspaceFilter>

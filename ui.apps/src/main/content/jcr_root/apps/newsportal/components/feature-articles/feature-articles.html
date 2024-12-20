@@ -1,0 +1,22 @@
+<!-- Uncomment this line if you want to include the article banner component -->
+<!-- <div data-sly-resource="${'feature' @resourceType='newsportal/components/article-banner'}"></div> -->
+
+<div style="background: darkblue; padding: 20px;">
+    <div style="background: rgb(166, 166, 239); padding: 20px;">
+        <h1>${properties.title}</h1>
+        <h2>${properties.subTitle}</h2>
+        <div style="background: lightcyan; padding: 10px;">
+            <h3>${properties.buttonLabel}</h3>
+            <a href="${properties.buttonPath @extension='html'}" target="${properties.openInNewTab == 'true' ? '_blank' : '_self'}">
+                <button><i class="fa fa-search"></i> Open New Tab</button>
+            </a>
+        </div>
+    </div>
+
+    <div style="background: lightseagreen; padding: 20px;">
+        <br><br>
+        <p>${properties.text @context='text'}</p>
+        <h4>${properties.tags}</h4>
+        <span>${properties.multiLable}</span>
+    </div>
+</div>

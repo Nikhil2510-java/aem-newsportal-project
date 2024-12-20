@@ -1,0 +1,21 @@
+ <!-- Top Bar Start -->
+ <div class="top-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="tb-contact">
+                    <p><i class="fas fa-envelope"></i>${properties.email}</p>
+                    <p><i class="fas fa-phone-alt"></i>${properties.phone}</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="tb-menu" data-sly-list="${properties.rightNav}">
+                   <sly data-sly-use.contentResource="${item}/jcr:content" />
+                   <a href="${item @extension='html'}">${contentResource.jcr:title}</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Top Bar Start -->
