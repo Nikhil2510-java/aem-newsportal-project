@@ -1,0 +1,6 @@
+
+{
+  "user.mapping":[
+    "newsportal.core:npsystemuser=npsysuser"
+  ]
+}

@@ -1,5 +1,5 @@
 {
-    "cronExpression":"0 */2 * ? * *",
+    "cronExpression":"*/15 * * ? * *",
     "berecAPI":"https://www.berec.europa.eu/en/emergency-means-export/json?page&_format=json",
     "enable":"true",
     "damPath":"/content/dam/newsportal/json/emergency-means/emergencyMeansReport.json",

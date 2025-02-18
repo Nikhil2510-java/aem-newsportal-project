@@ -6,11 +6,13 @@ import com.adobe.cq.wcm.core.components.models.Text;
 import com.adobe.cq.wcm.core.components.models.Title;
 import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.export.json.ExporterConstants;
+import com.bhasaka.newsportal.core.services.CountriesAPIServices;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Exporter;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ChildResource;
+import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.annotation.PostConstruct;
@@ -25,6 +27,9 @@ import javax.annotation.PostConstruct;
 public class ProductDetailsModel implements ComponentExporter {
 
     protected static final String RESOURCE_TYPE = "newsportal/components/product-details";
+
+    @OSGiService
+    private CountriesAPIServices countriesServices;
 
     @ValueMapValue
     private String category;
@@ -49,6 +54,7 @@ public class ProductDetailsModel implements ComponentExporter {
     private String imageSrc;
     private String buttonText;
     private String buttonLink;
+    private String data;
 
     @PostConstruct
     protected void init() {
@@ -66,6 +72,8 @@ public class ProductDetailsModel implements ComponentExporter {
             buttonText = npButton.getText();
             buttonLink = npButton.getLink();
         }
+        data=countriesServices.getCountries().toString();
+
     }
 
     public String getTitleText() {
@@ -86,6 +94,10 @@ public class ProductDetailsModel implements ComponentExporter {
 
     public String getButtonLink() {
         return buttonLink;
+    }
+
+    public String getData() {
+        return data;
     }
 
     @Override

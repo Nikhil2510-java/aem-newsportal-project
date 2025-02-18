@@ -1,9 +1,16 @@
 package com.bhasaka.newsportal.core.schedulers;
 
+import com.bhasaka.newsportal.core.utils.AemUtils;
 import com.day.cq.dam.api.AssetManager;
 import com.day.cq.replication.ReplicationActionType;
 import com.day.cq.replication.ReplicationException;
 import com.day.cq.replication.Replicator;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+//import com.lebara.core.utils.AemUtils;
+
+import org.apache.poi.util.StringUtil;
 import org.apache.sling.api.resource.*;
 import org.apache.sling.commons.scheduler.ScheduleOptions;
 import org.apache.sling.commons.scheduler.Scheduler;
@@ -17,10 +24,11 @@ import static org.apache.sling.api.servlets.HttpConstants.METHOD_GET;
 import static org.apache.sling.api.servlets.HttpConstants.HEADER_ACCEPT;
 
 import javax.jcr.Session;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +36,11 @@ import java.util.Map;
 @Component(service = Runnable.class, immediate = true, configurationPolicy = ConfigurationPolicy.REQUIRE)
 @Designate(ocd = BerecApiConfiguration.class)
 public class BerecApiScheduler implements Runnable {
+    private static final String CONTENT_TYPE_JSON = "application/json";
+    private static final String COUNTRY_CODE = "countrycode";
+    private static final String COUNTRY_NAME = "countryname";
+    private static final String API_COUNTRY_CODE = "country";
+    private static final String COUNTRY_NAME_JSON = "country_name";
 
     private String cronExpression;
     private String berecAPI;
@@ -41,14 +54,14 @@ public class BerecApiScheduler implements Runnable {
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
 
-    private static final String CONTENT_TYPE_JSON = "application/json";
-
-    private static final String SERVICE_NAME = "npsubservice";
+    private static final String SERVICE_NAME = "npsystemuser";
 
     private static final Map<String, Object> SERVICE_AUTH_INFO = Collections.singletonMap(ResourceResolverFactory.SUBSERVICE,
             (Object) SERVICE_NAME);
 
-    private static final Logger LOG=LoggerFactory.getLogger(BerecApiScheduler.class);
+    private static final Logger LOG = LoggerFactory.getLogger(BerecApiScheduler.class);
+
+    private static final String COUNTRY_INFO_PATH = "/content/dam/newsportal/countryinfo/countryCodeWithName.xlsx";
 
     @Reference
     Replicator replicator;
@@ -60,15 +73,14 @@ public class BerecApiScheduler implements Runnable {
         this.berecAPI = config.berecAPI();
         this.isEnabled = config.enable();
         this.damPath = config.damPath();
-        this.schedulerName=config.schedulerName();
-        LOG.info("berecAPI : {}",berecAPI);
+        this.schedulerName = config.schedulerName();
+        LOG.info("berecAPI : {}", berecAPI);
         LOG.info("cronExpression : {}, berecAPI : {}, isEnabled: {}, damPath : {}, schedulerName : {}", cronExpression, berecAPI, isEnabled, damPath, schedulerName);
         if (isEnabled) {
             ScheduleOptions options = scheduler.EXPR(cronExpression);
             options.canRunConcurrently(false);
             options.name(schedulerName);
             scheduler.schedule(this, options);
-            run();
         } else {
             scheduler.unschedule(schedulerName);
             LOG.info("Emergency Update Scheduler is disabled.");
@@ -80,8 +92,21 @@ public class BerecApiScheduler implements Runnable {
         try {
             String jsonData = fetchDataFromApi();
             LOG.debug("Fetched data from API: {}", jsonData);
-            if(jsonData != null && !jsonData.isEmpty()) {
-                uploadJsonToDam(jsonData);
+            if (jsonData != null && !jsonData.isEmpty()) {
+                Map<String, String> countries = getExcelData(COUNTRY_INFO_PATH);
+                if (!countries.isEmpty()) {
+                    String modifiedData = updatedJson(jsonData, countries);
+                    if (!modifiedData.isEmpty()) {
+                        uploadJsonToDam(modifiedData);
+                        LOG.info("Successfully uploaded modified data to DAM.");
+                    } else {
+                        LOG.error("Modified JSON data is empty.");
+                    }
+                } else {
+                    LOG.error("No country data retrieved from the Excel file.");
+                }
+            } else {
+                LOG.error("Fetched data from API is null or empty.");
             }
         } catch (Exception e) {
             LOG.error("Error occurred during Emergency Update Scheduler run", e);
@@ -95,58 +120,89 @@ public class BerecApiScheduler implements Runnable {
         InputStream inputStream = null;
         try {
             URL url = new URL(berecAPI);
-            if(url != null) {
+            if (url != null) {
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod(METHOD_GET);
                 connection.setRequestProperty(HEADER_ACCEPT, CONTENT_TYPE_JSON);
+                connection.setConnectTimeout(60000);
+                connection.setReadTimeout(60000);
                 inputStream = connection.getInputStream();
                 jsonData = new String(inputStream.readAllBytes());
             }
         } catch (Exception e) {
             LOG.error("Error fetching data from API: {}", berecAPI, e);
         } finally {
-            if(connection != null )
+            if (connection != null)
                 connection.disconnect();
-            if(inputStream != null)
+            if (inputStream != null)
                 inputStream.close();
         }
         return jsonData;
     }
 
-
-    private void uploadJsonToDam(String jsonData) throws LoginException {
-        try (ResourceResolver resolver = resourceResolverFactory.getServiceResourceResolver(SERVICE_AUTH_INFO)) {
-            String parentPath = damPath.substring(0, damPath.lastIndexOf('/'));
-            String fileName = damPath.substring(damPath.lastIndexOf('/') + 1);
-
-            Resource parentResource = resolver.getResource(parentPath);
-            if (parentResource == null) {
-                LOG.error("Parent path {} does not exist. Unable to create file.", parentPath);
-                return;
-            }
-            Resource existingFile = resolver.getResource(damPath);
-            if (existingFile != null) {
-                resolver.delete(existingFile);
-                LOG.info("file Deleted {}",existingFile);
-            }
-            Map<String, Object> fileProperties = new HashMap<>();
-            fileProperties.put("jcr:primaryType", "nt:file");
-            Resource fileResource = resolver.create(parentResource, fileName, fileProperties);
-
-            Map<String, Object> contentProperties = new HashMap<>();
-            contentProperties.put("jcr:primaryType", "nt:resource");
-            contentProperties.put("jcr:mimeType", CONTENT_TYPE_JSON);
-            contentProperties.put("jcr:data", jsonData);
-            contentProperties.put("jcr:lastModified", Calendar.getInstance());
-            resolver.create(fileResource, "jcr:content", contentProperties);
-
-            resolver.commit();
-            LOG.info("Successfully uploaded JSON to DAM at: {}", damPath);
-            replicator.replicate(resolver.adaptTo(Session.class), ReplicationActionType.ACTIVATE, damPath);
-
-        } catch (PersistenceException | ReplicationException e) {
-            LOG.error("Error while uploading JSON to DAM", e);
+    private Map<String, String> getExcelData(String excelPath) {
+        Map<String, String> countries = new HashMap<>();
+        if (StringUtil.isBlank(excelPath)) {
+            LOG.warn("Excel path is empty or null.");
+            return countries;
         }
+
+        try (ResourceResolver resolver = resourceResolverFactory.getServiceResourceResolver(SERVICE_AUTH_INFO)) {
+            JsonObject jsonObject = AemUtils.getExcelAsJson(excelPath, resolver);
+            if (jsonObject != null && !jsonObject.isJsonNull()) {
+                LOG.info("ExcelJsonData: {}", jsonObject);
+                jsonObject.entrySet().forEach(entry -> {
+                    JsonArray sheetArray = entry.getValue().getAsJsonArray();
+                    sheetArray.forEach(element -> {
+                        JsonObject countryData = element.getAsJsonObject();
+                        if (countryData.has(COUNTRY_CODE) && countryData.has(COUNTRY_NAME)) {
+                            String countryCode = countryData.get(COUNTRY_CODE).getAsString();
+                            String countryName = countryData.get(COUNTRY_NAME).getAsString();
+                            countries.put(countryCode, countryName);
+                        }
+                    });
+                });
+            }
+        } catch (LoginException | IOException e) {
+            LOG.error("Error retrieving Excel data or processing JSON", e);
+        }
+        return countries;
     }
 
+    private String updatedJson(String jsonDataFromAPI, Map<String, String> countries) {
+        JsonArray jsonElements = new JsonParser().parse(jsonDataFromAPI).getAsJsonArray();
+        jsonElements.forEach(element -> {
+            JsonObject jsonObject = element.getAsJsonObject();
+            if (jsonObject.has(API_COUNTRY_CODE)) {
+                String countryCode = jsonObject.get(API_COUNTRY_CODE).getAsString();
+                String countryName = countries.getOrDefault(countryCode, countryCode);
+                jsonObject.addProperty(COUNTRY_NAME_JSON, countryName);
+            }
+        });
+        return jsonElements.toString();
+    }
+
+    private void uploadJsonToDam(String jsonData) throws LoginException,
+            IOException {
+        AssetManager assetManager = null;
+        InputStream inputStream = null;
+        try (ResourceResolver resolver = resourceResolverFactory.getServiceResourceResolver(SERVICE_AUTH_INFO)) {
+            if (resolver != null) {
+                assetManager = resolver.adaptTo(AssetManager.class);
+                if (assetManager != null) {
+                    inputStream = new ByteArrayInputStream(jsonData.getBytes());
+                    assetManager.createAsset(damPath, inputStream, CONTENT_TYPE_JSON, true);
+                    resolver.commit();
+                    replicator.replicate(resolver.adaptTo(Session.class), ReplicationActionType.ACTIVATE, damPath);
+                    LOG.info("Successfully uploaded JSON to DAM at: {}", damPath);
+                }
+            }
+        } catch (PersistenceException | ReplicationException e) {
+            LOG.error("Error committing changes to resolver for DAM upload", e);
+        } finally {
+            if (inputStream != null) {
+                inputStream.close();
+            }
+        }
+    }
 }
